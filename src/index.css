@@ -1,0 +1,133 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 210 100% 53%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 273 100% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-white/10 selection:text-white;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 15px var(--glow-color, rgba(10, 239, 255, 0.8)), 
+                 0 0 30px var(--glow-color, rgba(10, 239, 255, 0.4));
+  }
+
+  .text-glow-purple {
+    --glow-color: rgba(158, 0, 255, 0.8);
+    text-shadow: 0 0 15px var(--glow-color), 
+                 0 0 30px rgba(158, 0, 255, 0.4);
+  }
+
+  .text-glow-pink {
+    --glow-color: rgba(255, 61, 152, 0.8);
+    text-shadow: 0 0 15px var(--glow-color), 
+                 0 0 30px rgba(255, 61, 152, 0.4);
+  }
+
+  .text-glow-green {
+    --glow-color: rgba(0, 255, 163, 0.8);
+    text-shadow: 0 0 15px var(--glow-color), 
+                 0 0 30px rgba(0, 255, 163, 0.4);
+  }
+
+  .box-glow {
+    box-shadow: 0 0 15px var(--glow-color, rgba(10, 239, 255, 0.5)), 
+                0 0 30px var(--glow-color, rgba(10, 239, 255, 0.2));
+  }
+
+  .box-glow-purple {
+    --glow-color: rgba(158, 0, 255, 0.5);
+    box-shadow: 0 0 15px var(--glow-color), 
+                0 0 30px rgba(158, 0, 255, 0.2);
+  }
+  
+  .box-glow-pink {
+    --glow-color: rgba(255, 61, 152, 0.5);
+    box-shadow: 0 0 15px var(--glow-color), 
+                0 0 30px rgba(255, 61, 152, 0.2);
+  }
+
+  .box-glow-green {
+    --glow-color: rgba(0, 255, 163, 0.5);
+    box-shadow: 0 0 15px var(--glow-color), 
+                0 0 30px rgba(0, 255, 163, 0.2);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_4px_15px_-2px_rgba(0,0,0,0.4)];
+  }
+  
+  .shimmer-effect {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 6s linear infinite;
+  }
+  
+  .button-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:brightness-110 active:scale-95;
+  }
+  
+  .futuristic-border {
+    @apply relative before:absolute before:content-[''] before:w-[calc(100%+5px)] before:h-[calc(100%+5px)] before:top-[-2.5px] before:left-[-2.5px] before:bg-gradient-to-r before:from-neon-blue before:via-neon-purple before:to-neon-pink before:z-[-1] before:rounded-[inherit] before:opacity-75 overflow-visible;
+  }
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
